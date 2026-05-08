@@ -39,25 +39,36 @@
     }
 
     .glass-nav { background: rgba(13, 31, 23, 0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(197, 160, 33, 0.2); transition: all 0.3s ease; }
-    .glass-nav.scrolled { background: rgba(10, 26, 18, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 8px 24px; }
+    .glass-nav.scrolled { background: rgba(10, 26, 18, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 8px 16px; }
 
     .hero-with-image { min-height: 100vh; display: flex; align-items: center; position: relative; }
     .hero-card {
       background: rgba(10, 26, 18, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-radius: 48px; border: 1px solid rgba(197, 160, 33, 0.3);
-      padding: 48px 56px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-      height: 100%; min-height: 550px; display: flex; flex-direction: column; justify-content: center;
+      border-radius: 32px; border: 1px solid rgba(197, 160, 33, 0.3);
+      padding: 32px 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      height: 100%; min-height: auto; display: flex; flex-direction: column; justify-content: center;
     }
+    @media (min-width: 768px) {
+      .hero-card { padding: 48px 56px; min-height: 550px; border-radius: 48px; }
+    }
+    
     .hero-logo-card {
       background: rgba(10, 26, 18, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-radius: 48px; border: 1px solid rgba(197, 160, 33, 0.3);
+      border-radius: 32px; border: 1px solid rgba(197, 160, 33, 0.3);
       box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-      height: 100%; min-height: 550px; display: flex; align-items: center; justify-content: center;
+      height: 100%; min-height: auto; display: flex; align-items: center; justify-content: center;
       overflow: hidden; padding: 0;
     }
+    @media (min-width: 768px) {
+      .hero-logo-card { min-height: 550px; border-radius: 48px; }
+    }
+
     .hero-badge {
       display: inline-block; background: rgba(197, 160, 33, 0.2); border: 1px solid #C5A021;
-      border-radius: 50px; padding: 8px 24px; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 24px;
+      border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 16px;
+    }
+    @media (min-width: 768px) {
+      .hero-badge { padding: 8px 24px; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 24px; }
     }
 
     .lang-selector { position: relative; display: inline-block; }
@@ -67,20 +78,34 @@
       display: none; z-index: 100; border: 1px solid #C5A021;
     }
     .lang-selector.active .lang-dropdown { display: block; }
-    .lang-option { padding: 0.6rem 1rem; cursor: pointer; color: white; transition: all 0.2s; border-radius: 10px; display: flex; align-items: center; gap: 8px; }
+    .lang-option { padding: 0.6rem 1rem; cursor: pointer; color: white; transition: all 0.2s; border-radius: 10px; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
     .lang-option:hover { background: #C5A021; color: #0a1a12; }
 
-    .swiper { width: 100%; padding: 2rem 0.5rem 4rem; }
+    .swiper { width: 100%; padding: 1.5rem 0.5rem 3rem; }
+    @media (min-width: 768px) {
+      .swiper { padding: 2rem 0.5rem 4rem; }
+    }
+    
     .swiper-slide {
       background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      border-radius: 32px; overflow: hidden; border: 1px solid rgba(197, 160, 33, 0.2); transition: all 0.4s;
+      border-radius: 24px; overflow: hidden; border: 1px solid rgba(197, 160, 33, 0.2); transition: all 0.4s;
     }
+    @media (min-width: 768px) {
+      .swiper-slide { border-radius: 32px; }
+    }
+    
     .swiper-slide-active { transform: scale(1.02); box-shadow: 0 30px 50px -10px rgba(0,0,0,0.5); border-color: #C5A021; }
-    .swiper-slide img { width: 100%; height: 280px; object-fit: cover; cursor: pointer; }
+    .swiper-slide img { width: 100%; height: 220px; object-fit: cover; cursor: pointer; }
+    @media (min-width: 768px) {
+      .swiper-slide img { height: 280px; }
+    }
 
     .glass-card {
       background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(197, 160, 33, 0.15); border-radius: 24px; transition: all 0.4s ease;
+      border: 1px solid rgba(197, 160, 33, 0.15); border-radius: 20px; transition: all 0.4s ease;
+    }
+    @media (min-width: 768px) {
+      .glass-card { border-radius: 24px; }
     }
     .glass-card:hover { transform: translateY(-10px); border-color: #C5A021; }
     .glass-card img { cursor: pointer; }
@@ -90,54 +115,84 @@
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 1000;
       align-items: center; justify-content: center; padding: 16px;
+      overflow-y: auto;
     }
     .modal.active { display: flex; }
     .modal-content {
       background: linear-gradient(145deg, #1a2f25, #0f2319);
-      max-width: 600px; width: 100%; border-radius: 40px; overflow: hidden;
+      max-width: 600px; width: 100%; border-radius: 32px; overflow: hidden;
       position: relative; border: 2px solid #C5A021;
       animation: modalPop 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
-      max-height: 90vh; overflow-y: auto;
+      margin: auto;
     }
+    @media (min-width: 768px) {
+      .modal-content { border-radius: 40px; max-height: 90vh; overflow-y: auto; }
+    }
+
     .modal-image-wrapper {
-      width: 100%; height: 300px; overflow: hidden; position: relative;
+      width: 100%; height: 250px; overflow: hidden; position: relative;
     }
+    @media (min-width: 768px) {
+      .modal-image-wrapper { height: 300px; }
+    }
+    
     .modal-image-wrapper img {
       width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer;
     }
     .modal-image-wrapper::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 100px;
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
       background: linear-gradient(transparent, #1a2f25);
     }
-    .modal-body { padding: 2rem 2.5rem 2.5rem; }
+    @media (min-width: 768px) {
+      .modal-image-wrapper::after { height: 100px; }
+    }
+    
+    .modal-body { padding: 1.5rem 1.5rem 2rem; }
+    @media (min-width: 768px) {
+      .modal-body { padding: 2rem 2.5rem 2.5rem; }
+    }
+    
     @keyframes modalPop {
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
 
     .btn-primary {
-      background: #C5A021; color: #0a1a12; padding: 14px 32px; border-radius: 50px;
+      background: #C5A021; color: #0a1a12; padding: 12px 24px; border-radius: 50px;
       font-weight: 700; transition: all 0.3s; border: 2px solid transparent; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem;
+    }
+    @media (min-width: 768px) {
+      .btn-primary { padding: 14px 32px; font-size: 1rem; }
     }
     .btn-primary:hover { background: transparent; color: #C5A021; border-color: #C5A021; transform: translateY(-3px); }
+    
     .btn-outline {
-      background: transparent; color: white; padding: 14px 32px; border-radius: 50px;
+      background: transparent; color: white; padding: 12px 24px; border-radius: 50px;
       font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s;
-      cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+      cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem;
+    }
+    @media (min-width: 768px) {
+      .btn-outline { padding: 14px 32px; font-size: 1rem; }
     }
     .btn-outline:hover { border-color: #C5A021; background: rgba(197, 160, 33, 0.1); transform: translateY(-3px); }
 
     .social-btn {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(197, 160, 33, 0.3); color: white; transition: all 0.3s; text-decoration: none;
+      width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(197, 160, 33, 0.3); color: white; transition: all 0.3s; text-decoration: none; font-size: 1.2rem;
+    }
+    @media (min-width: 768px) {
+      .social-btn { width: 48px; height: 48px; font-size: 1.4rem; }
     }
     .social-btn:hover { background: #C5A021; color: #0a1a12; transform: translateY(-3px); }
 
     .form-input {
-      width: 100%; padding: 1rem 1.5rem; background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(197, 160, 33, 0.2); border-radius: 20px; color: white; transition: all 0.3s;
+      width: 100%; padding: 0.9rem 1.2rem; background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(197, 160, 33, 0.2); border-radius: 16px; color: white; transition: all 0.3s; font-size: 0.95rem;
+    }
+    @media (min-width: 768px) {
+      .form-input { padding: 1rem 1.5rem; border-radius: 20px; font-size: 1rem; }
     }
     .form-input:focus { outline: none; border-color: #C5A021; background: rgba(255, 255, 255, 0.1); }
 
@@ -147,7 +202,7 @@
       padding: 100px 30px 40px; transition: right 0.4s ease; border-left: 1px solid rgba(197, 160, 33, 0.3);
     }
     .mobile-menu.active { right: 0; }
-    .mobile-menu a { display: block; color: white; text-decoration: none; padding: 15px 0; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .mobile-menu a { display: block; color: white; text-decoration: none; padding: 15px 0; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .mobile-menu a:hover { color: #C5A021; padding-left: 10px; }
     .mobile-close { position: absolute; top: 20px; right: 20px; font-size: 28px; cursor: pointer; }
     .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99; display: none; }
@@ -159,13 +214,19 @@
 
     .swiper-button-next, .swiper-button-prev {
       color: #C5A021 !important; background: rgba(10, 26, 18, 0.8);
-      width: 44px; height: 44px; border-radius: 50%; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+      width: 40px; height: 40px; border-radius: 50%; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
     }
-    .swiper-button-next:after, .swiper-button-prev:after { font-size: 18px; }
+    @media (min-width: 768px) {
+      .swiper-button-next, .swiper-button-prev { width: 44px; height: 44px; }
+    }
+    .swiper-button-next:after, .swiper-button-prev:after { font-size: 16px; }
+    @media (min-width: 768px) {
+      .swiper-button-next:after, .swiper-button-prev:after { font-size: 18px; }
+    }
     .swiper-pagination-bullet { background: rgba(255,255,255,0.5) !important; }
     .swiper-pagination-bullet-active { background: #C5A021 !important; }
 
-    /* ===== BARCHA MAHSULOTLAR SAHIFASI ===== */
+    /* ===== ALL PRODUCTS PAGE ===== */
     #allProductsPage {
       display: none;
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -175,33 +236,58 @@
     #allProductsPage .dark-bg {
       min-height: 100vh;
       background: linear-gradient(135deg, #0d1f17 0%, #1a2f25 50%, #0f2319 100%);
-      padding: 100px 16px 60px;
+      padding: 80px 12px 60px;
     }
+    @media (min-width: 768px) {
+      #allProductsPage .dark-bg { padding: 100px 16px 60px; }
+    }
+
     .product-grid-card {
       background: rgba(255,255,255,0.06); border: 1px solid rgba(197,160,33,0.15);
-      border-radius: 24px; overflow: hidden; transition: all 0.35s ease; cursor: pointer;
+      border-radius: 16px; overflow: hidden; transition: all 0.35s ease; cursor: pointer;
+    }
+    @media (min-width: 768px) {
+      .product-grid-card { border-radius: 24px; }
     }
     .product-grid-card:hover {
       border-color: #C5A021; transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
-    .product-grid-card img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.4s; cursor: pointer; }
+    .product-grid-card img { width: 100%; height: 180px; object-fit: cover; display: block; transition: transform 0.4s; cursor: pointer; }
+    @media (min-width: 768px) {
+      .product-grid-card img { height: 220px; }
+    }
     .product-grid-card:hover img { transform: scale(1.05); }
-    .product-grid-card .card-body { padding: 1.2rem 1.4rem 1.5rem; }
-    .product-grid-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: white; margin-bottom: 4px; }
-    .product-grid-card p { color: #C5A021; font-size: 0.85rem; margin-bottom: 12px; }
+    .product-grid-card .card-body { padding: 1rem 1rem 1.2rem; }
+    @media (min-width: 768px) {
+      .product-grid-card .card-body { padding: 1.2rem 1.4rem 1.5rem; }
+    }
+    .product-grid-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: white; margin-bottom: 4px; }
+    @media (min-width: 768px) {
+      .product-grid-card h3 { font-size: 1.15rem; }
+    }
+    .product-grid-card p { color: #C5A021; font-size: 0.8rem; margin-bottom: 10px; }
+    @media (min-width: 768px) {
+      .product-grid-card p { font-size: 0.85rem; margin-bottom: 12px; }
+    }
     .product-grid-card button {
       width: 100%; background: #C5A021; color: #0a1a12; border: none;
-      padding: 10px; border-radius: 50px; font-weight: 700; cursor: pointer; transition: all 0.3s;
-      font-size: 0.9rem;
+      padding: 8px; border-radius: 50px; font-weight: 700; cursor: pointer; transition: all 0.3s;
+      font-size: 0.85rem;
+    }
+    @media (min-width: 768px) {
+      .product-grid-card button { padding: 10px; font-size: 0.9rem; }
     }
     .product-grid-card button:hover { background: white; }
 
     .back-btn {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(197,160,33,0.15); border: 1px solid #C5A021;
-      color: #C5A021; padding: 10px 22px; border-radius: 50px;
-      cursor: pointer; font-weight: 600; transition: all 0.3s; font-size: 0.95rem;
+      color: #C5A021; padding: 8px 18px; border-radius: 50px;
+      cursor: pointer; font-weight: 600; transition: all 0.3s; font-size: 0.9rem;
+    }
+    @media (min-width: 768px) {
+      .back-btn { padding: 10px 22px; font-size: 0.95rem; }
     }
     .back-btn:hover { background: #C5A021; color: #0a1a12; }
 
@@ -209,7 +295,10 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 300;
       background: rgba(10,26,18,0.95); backdrop-filter: blur(15px);
       border-bottom: 1px solid rgba(197,160,33,0.2);
-      padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;
+    }
+    @media (min-width: 768px) {
+      .all-products-nav { padding: 16px 24px; }
     }
 
     #lightbox {
@@ -228,6 +317,17 @@
       from { transform: scale(0.8); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
+
+    .success-message {
+      background: rgba(76, 175, 80, 0.2); border: 1px solid #4CAF50;
+      color: #4CAF50; padding: 1rem; border-radius: 12px; margin-bottom: 1rem;
+      display: none; text-align: center;
+    }
+    .success-message.show { display: block; animation: slideIn 0.3s ease-out; }
+    @keyframes slideIn {
+      from { transform: translateY(-10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -235,21 +335,21 @@
 <div class="dark-forest-bg"></div>
 <div class="tree-silhouette">
   <svg class="tree tree-1" viewBox="0 0 200 400" fill="#0a1a12">
-    <path d="M100,400 L100,200 C100,200 60,180 40,140 C20,100 50,80 50,80 C50,80 20,60 10,20 C0,-20 50,0 50,0 C50,0 30,-30 50,-50 C70,-70 90,-30 100,-20 C110,-30 130,-70 150,-50 C170,-30 150,0 150,0 C150,0 200,-20 190,20 C180,60 150,80 150,80 C150,80 180,100 160,140 C140,180 100,200 100,200 L100,400Z"/>
+    <path d="M100,400 L100,200 C100,200 60,180 40,140 C20,100 50,80 50,80 C50,80 20,60 10,20 C0,-20 50,0 50,0 C50,0 30,-30 50,-50 C70,-70 90,-30 100,-20 C110,-30 130,-70 150,-50 C170,-30 150,0 150,0 C150,0 120,60 100,100 C80,140 100,200 100,200 Z"/>
   </svg>
   <svg class="tree tree-2" viewBox="0 0 200 400" fill="#0a1a12">
-    <path d="M100,400 L100,200 C100,200 60,180 40,140 C20,100 50,80 50,80 C50,80 20,60 10,20 C0,-20 50,0 50,0 C50,0 30,-30 50,-50 C70,-70 90,-30 100,-20 C110,-30 130,-70 150,-50 C170,-30 150,0 150,0 C150,0 200,-20 190,20 C180,60 150,80 150,80 C150,80 180,100 160,140 C140,180 100,200 100,200 L100,400Z"/>
+    <path d="M100,400 L100,200 C100,200 60,180 40,140 C20,100 50,80 50,80 C50,80 20,60 10,20 C0,-20 50,0 50,0 C50,0 30,-30 50,-50 C70,-70 90,-30 100,-20 C110,-30 130,-70 150,-50 C170,-30 150,0 150,0 C150,0 120,60 100,100 C80,140 100,200 100,200 Z"/>
   </svg>
 </div>
 <div class="falling-leaves" id="fallingLeaves"></div>
 
 <!-- NAVBAR -->
-<nav class="glass-nav fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center" id="navbar">
-  <div class="flex items-center gap-3 cursor-pointer">
-    <img src="logotip.png" alt="Logo" class="h-10 w-auto" onerror="this.src='https://placehold.co/200x60/C5A021/white?text=Zaytun+Garden'">
-    <span class="text-xl md:text-2xl font-serif font-bold text-white">Zaytun Garden</span>
+<nav class="glass-nav fixed top-0 left-0 w-full z-50 py-3 px-4 md:py-4 md:px-12 flex justify-between items-center" id="navbar">
+  <div class="flex items-center gap-2 cursor-pointer md:gap-3">
+    <img src="logotip.png" alt="Logo" class="h-8 w-auto md:h-10" onerror="this.src='https://placehold.co/200x60/C5A021/white?text=Zaytun+Garden'">
+    <span class="text-lg md:text-2xl font-serif font-bold text-white">Zaytun</span>
   </div>
-  <div class="flex items-center gap-6">
+  <div class="flex items-center gap-4 md:gap-6">
     <div class="hidden md:flex gap-8 text-white/90 font-medium">
       <a href="#home" class="hover:text-[#C5A021] transition-all" data-key="nav_home">Asosiy</a>
       <a href="#products" class="hover:text-[#C5A021] transition-all" data-key="nav_products">Mahsulotlar</a>
@@ -257,8 +357,8 @@
       <a href="#contact" class="hover:text-[#C5A021] transition-all" data-key="nav_contact">Aloqa</a>
     </div>
     <div class="lang-selector" id="langSelector">
-      <button class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white border border-white/20" id="langBtn">
-        <span id="currentLang">🇺🇿 O'zbekcha</span> <i class="fas fa-chevron-down text-xs"></i>
+      <button class="flex items-center gap-1 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full text-white border border-white/20 text-sm md:text-base md:px-4 md:py-2" id="langBtn">
+        <span id="currentLang">🇺🇿 UZ</span> <i class="fas fa-chevron-down text-xs"></i>
       </button>
       <div class="lang-dropdown">
         <div class="lang-option" data-lang="uz">🇺🇿 O'zbekcha</div>
@@ -267,7 +367,7 @@
         <div class="lang-option" data-lang="en">🇬🇧 English</div>
       </div>
     </div>
-    <button class="md:hidden text-white text-2xl" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    <button class="md:hidden text-white text-xl" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
@@ -282,24 +382,24 @@
 <div class="menu-overlay" id="menuOverlay"></div>
 
 <!-- HERO -->
-<section id="home" class="hero-with-image px-4 pt-20">
+<section id="home" class="hero-with-image px-4 pt-16 md:pt-20">
   <div class="max-w-7xl mx-auto w-full">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
       <div data-aos="fade-right" data-aos-duration="1000">
         <div class="hero-card">
           <div class="hero-badge"><i class="fas fa-seedling mr-2"></i> Est. 2025</div>
-          <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-4 leading-tight" data-key="hero_title">ZAYTUN <br>GARDEN</h1>
-          <p class="text-2xl text-[#C5A021] font-serif mb-4" data-key="hero_subtitle">Daraxtlar va butalar ko'chatxonasi</p>
-          <p class="text-white/70 mb-8 leading-relaxed" data-key="hero_desc">Tabiatni uyingizga olib keling. 100+ turdagi dekorativ daraxtlar, butalar, ko'chatlar va gullar.</p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#products" class="btn-primary" data-key="catalog_btn"><i class="fas fa-leaf"></i> Katalogni ko'rish</a>
+          <h1 class="text-4xl md:text-7xl font-serif font-bold text-white mb-3 md:mb-4 leading-tight" data-key="hero_title">ZAYTUN <br>GARDEN</h1>
+          <p class="text-xl md:text-2xl text-[#C5A021] font-serif mb-3 md:mb-4" data-key="hero_subtitle">Daraxtlar va butalar ko'chatxonasi</p>
+          <p class="text-white/70 mb-6 md:mb-8 leading-relaxed text-sm md:text-base" data-key="hero_desc">Tabiatni uyingizga olib keling. 100+ turdagi dekorativ daraxtlar, butalar, ko'chatlar va gullar.</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#products" class="btn-primary" data-key="catalog_btn"><i class="fas fa-leaf"></i> Katalog</a>
             <a href="#contact" class="btn-outline" data-key="contact_btn"><i class="fas fa-phone-alt"></i> Bog'lanish</a>
           </div>
         </div>
       </div>
-      <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" class="flex justify-center items-stretch h-full">
+      <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" class="hidden md:flex justify-center items-stretch h-full">
         <div class="hero-logo-card w-full transform hover:scale-105 transition duration-500">
-          <img src="logotip.png" alt="Zaytun bog'i" class="w-full h-full object-cover scale-110" onerror="this.src='https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=1200'">
+          <img src="logotip.png" alt="Zaytun bog'i" class="w-full h-full object-cover scale-110" onerror="this.src='https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb'">
         </div>
       </div>
     </div>
@@ -307,13 +407,13 @@
 </section>
 
 <!-- PRODUCTS SECTION -->
-<section id="products" class="py-20 px-4">
+<section id="products" class="py-16 md:py-20 px-4">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-serif text-white mb-4 text-center" data-aos="fade-up" data-key="products_title">Bizning mahsulotlar</h2>
-    <p class="text-white/60 text-center max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="100" data-key="products_desc">Yevropa va Osiyodan keltirilgan sifatli ko'chatlar</p>
+    <h2 class="text-3xl md:text-5xl font-serif text-white mb-3 md:mb-4 text-center" data-aos="fade-up" data-key="products_title">Bizning mahsulotlar</h2>
+    <p class="text-white/60 text-center max-w-2xl mx-auto mb-6 text-sm md:text-base" data-aos="fade-up" data-aos-delay="100" data-key="products_desc">Yevropa va Osiyodan keltirilgan sifatli ko'chatlar</p>
 
-    <div class="text-center mb-10" data-aos="fade-up" data-aos-delay="150">
-      <button class="btn-primary" id="showAllProductsBtn" style="font-size:1rem; padding: 14px 40px;" data-key="all_btn">
+    <div class="text-center mb-8 md:mb-10" data-aos="fade-up" data-aos-delay="150">
+      <button class="btn-primary" id="showAllProductsBtn" data-key="all_btn">
         <i class="fas fa-th-large"></i> Barchasi
       </button>
     </div>
@@ -323,252 +423,32 @@
         <!-- 1 -->
         <div class="swiper-slide">
           <img src="zaytun_daraxti.jpg" alt="Zaytun" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/2E7D32/white?text=Zaytun'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Zaytun daraxti</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="zaytun">
+          <div class="p-4 md:p-6">
+            <h3 class="text-lg md:text-2xl font-serif text-white">Zaytun daraxti</h3>
+            <p class="text-[#C5A021] font-medium text-sm md:text-base"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
+            <button class="mt-3 md:mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-4 md:px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn text-sm md:text-base" data-plant="zaytun">
               <i class="fas fa-info-circle"></i> Batafsil
             </button>
           </div>
         </div>
         <!-- 2 -->
         <div class="swiper-slide">
-          <img src="yevropa kiparis uzun.jpg" alt="Kiparis" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/1B5E20/white?text=Yevropa+Kiparis'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Yevropa piramid kiparisi</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="kiparis">
+          <img src="yevropa kiparis uzun.jpg" alt="Kiparis" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/1B5E20/white?text=Kiparis'">
+          <div class="p-4 md:p-6">
+            <h3 class="text-lg md:text-2xl font-serif text-white">Yevropa kiparisi</h3>
+            <p class="text-[#C5A021] font-medium text-sm md:text-base"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
+            <button class="mt-3 md:mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-4 md:px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn text-sm md:text-base" data-plant="kiparis">
               <i class="fas fa-info-circle"></i> Batafsil
             </button>
           </div>
         </div>
         <!-- 3 -->
         <div class="swiper-slide">
-          <img src="siren diamond.jpg" alt="Siren" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/4CAF50/white?text=India+Sireni'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">India sireni (Lagerstroemia)</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="siren">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 4 -->
-        <div class="swiper-slide">
-          <img src="rozmarin.jpg" alt="Rozmarin" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/66BB6A/white?text=Rozmarin'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Rozmarin</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="rozmarin">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 5 -->
-        <div class="swiper-slide">
-          <img src="oleandra.jpg" alt="Oleandro" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/81C784/white?text=Oleandro'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Oleandro nano</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="oleandro">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 6 -->
-        <div class="swiper-slide">
-          <img src="lox.jpg" alt="Lox" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/A5D6A7/white?text=Lox'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Lox</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="lox">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 7 -->
-        <div class="swiper-slide">
-          <img src="ligustrum.jpg" alt="Ligustrum" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/C8E6C9/white?text=Ligustrum'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Ligustrum</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="ligustrum">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 8 -->
-        <div class="swiper-slide">
-          <img src="leylandi.jpg" alt="Leylandi" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/E8F5E9/white?text=Leylandi'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Leylandi Sarvi</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="leylandi">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 9 -->
-        <div class="swiper-slide">
-          <img src="lavr yirik.jpg" alt="Lavr" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/F1F8E9/white?text=Lavr'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Lavroviy list</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="lavr">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 10 -->
-        <div class="swiper-slide">
-          <img src="lavanda.jpg" alt="Lavanda" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/D4E157/white?text=Lavanda'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Lavanda</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="lavanda">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 11 -->
-        <div class="swiper-slide">
-          <img src="kiparis spiral.jpg" alt="Kiparis spiral" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/9CCC65/white?text=Kiparis'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Arizona Kiparis Spiral</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="kiparis2">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 12 -->
-        <div class="swiper-slide">
-          <img src="kedri deodora.jpg" alt="Kedr" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/8BC34A/white?text=Kedr'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Kedri Deodora</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="kedr">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 13 -->
-        <div class="swiper-slide">
-          <img src="iyanomus japonica.jpg" alt="Iyanomus" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/7CB342/white?text=Iyanomus'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Iyanomus Japonica</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="iyanomus">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 14 -->
-        <div class="swiper-slide">
-          <img src="goldkrest kiparis.jpg" alt="Goldkrest" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/689F38/white?text=Goldkrest'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Goldkrest Kiparis</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="goldkrest">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 15 -->
-        <div class="swiper-slide">
-          <img src="geron.jpg" alt="Geron" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/558B2F/white?text=Geron'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Geron</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="geron">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 16 -->
-        <div class="swiper-slide">
-          <img src="fotiniya shar.jpg" alt="Fotiniya" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/33691E/white?text=Fotiniya'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Fotiniya Shar</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="fotiniya">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 17 -->
-        <div class="swiper-slide">
-          <img src="fotiniya obichniy.jpg" alt="Fotiniya" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/2E7D32/white?text=Fotiniya'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Fotiniya</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="fotiniya2">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 18 -->
-        <div class="swiper-slide">
-          <img src="Callistemon.jpg" alt="Callistemon" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/4CAF50/white?text=Callistemon'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Callistemon</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="callistemon">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 19 -->
-        <div class="swiper-slide">
-          <img src="buxus.jpg" alt="Buxus" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/81C784/white?text=Buxus'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Buxus</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="buxus">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 20 -->
-        <div class="swiper-slide">
-          <img src="bravo.jpg" alt="Bravo" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/A5D6A7/white?text=Bravo'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Bravo iyonomus</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="bravo">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 21 -->
-        <div class="swiper-slide">
-          <img src="aura.jpg" alt="Aura" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/C8E6C9/white?text=Aura'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Aura iyonomus</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="aura">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 22 -->
-        <div class="swiper-slide">
-          <img src="atirgul shtamp.jpg" alt="Atirgul" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/E8F5E9/white?text=Atirgul'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Atirgul shtamp</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="atirgul">
-              <i class="fas fa-info-circle"></i> Batafsil
-            </button>
-          </div>
-        </div>
-        <!-- 23 -->
-        <div class="swiper-slide">
-          <img src="abeliya grandiflora.jpg" alt="Abelia" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/F1F8E9/white?text=Abelia'">
-          <div class="p-6">
-            <h3 class="text-2xl font-serif text-white">Abelia grandiflora</h3>
-            <p class="text-[#C5A021] font-medium"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
-            <button class="mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn" data-plant="abelia">
+          <img src="siren diamond.jpg" alt="Siren" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/4CAF50/white?text=Siren'">
+          <div class="p-4 md:p-6">
+            <h3 class="text-lg md:text-2xl font-serif text-white">India sireni</h3>
+            <p class="text-[#C5A021] font-medium text-sm md:text-base"><i class="fas fa-map-pin mr-1"></i> Turkiya</p>
+            <button class="mt-3 md:mt-4 w-full bg-[#C5A021] text-[#0a1a12] px-4 md:px-6 py-2 rounded-full font-bold hover:bg-white transition-all detail-btn text-sm md:text-base" data-plant="siren">
               <i class="fas fa-info-circle"></i> Batafsil
             </button>
           </div>
@@ -582,56 +462,64 @@
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" class="py-20 px-4">
+<section id="gallery" class="py-16 md:py-20 px-4">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl font-serif text-white mb-12 text-center" data-aos="flip-up" data-key="gallery_title">Galereya</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <h2 class="text-3xl md:text-4xl font-serif text-white mb-8 md:mb-12 text-center" data-aos="flip-up" data-key="gallery_title">Galereya</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
       <div class="glass-card overflow-hidden" data-aos="fade-right">
-        <img src="galery2.jpg" class="w-full h-64 object-cover transition duration-500 hover:scale-110" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/2E7D32/white?text=Zaytun+Garden'">
-        <div class="p-4"><h3 class="text-white text-xl" data-key="gallery_1">Zaytun Garden</h3></div>
+        <img src="galery2.jpg" class="w-full h-48 md:h-64 object-cover transition duration-500 hover:scale-110" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/2E7D32/white?text=Gallery'">
+        <div class="p-3 md:p-4"><h3 class="text-white text-lg" data-key="gallery_1">Zaytun Garden</h3></div>
       </div>
       <div class="glass-card overflow-hidden" data-aos="fade-up">
-        <img src="galery 1.jpg" class="w-full h-64 object-cover transition duration-500 hover:scale-110" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/1B5E20/white?text=Poliv'">
-        <div class="p-4"><h3 class="text-white text-xl" data-key="gallery_2">Poliv</h3></div>
+        <img src="galery 1.jpg" class="w-full h-48 md:h-64 object-cover transition duration-500 hover:scale-110" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/1B5E20/white?text=Gallery'">
+        <div class="p-3 md:p-4"><h3 class="text-white text-lg" data-key="gallery_2">Poliv</h3></div>
       </div>
       <div class="glass-card overflow-hidden" data-aos="fade-left">
-        <img src="galery3.jpg" class="w-full h-64 object-cover transition duration-500 hover:scale-110" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/4CAF50/white?text=Yomgirlatish'">
-        <div class="p-4"><h3 class="text-white text-xl" data-key="gallery_3">Yomg'irlatib sug'orish</h3></div>
+        <img src="galery3.jpg" class="w-full h-48 md:h-64 object-cover transition duration-500 hover:scale-110" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/4CAF50/white?text=Gallery'">
+        <div class="p-3 md:p-4"><h3 class="text-white text-lg" data-key="gallery_3">Yomg'irlatib sug'orish</h3></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-20 px-4">
+<section id="contact" class="py-16 md:py-20 px-4">
   <div class="max-w-7xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-12">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
       <div data-aos="fade-up">
-        <h2 class="text-4xl font-serif text-white mb-6" data-key="contact_title">Biz bilan bog'lanish</h2>
-        <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxBJvKd67yx07jwMqWTcROr4KBYjX72nx2XLSMq_r17vHAZ3sbujFzqzxb50nNIr6Oo/exec" method="POST" class="space-y-6">
+        <h2 class="text-3xl md:text-4xl font-serif text-white mb-6" data-key="contact_title">Bog'lanish</h2>
+        
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle mr-2"></i> <span data-key="success_msg">Xabaringiz muvaffaqiyatli yuborildi!</span>
+        </div>
+
+        <form id="contactForm" class="space-y-4 md:space-y-6">
           <input type="text" name="name" class="form-input" placeholder="Ismingiz" id="userName" data-key-placeholder="name_placeholder" required>
           <input type="tel" name="phone" class="form-input" placeholder="Telefon raqam" id="userPhone" data-key-placeholder="phone_placeholder" required>
           <textarea name="message" rows="4" class="form-input" placeholder="Xabaringiz" id="userMessage" data-key-placeholder="message_placeholder" required></textarea>
           <button type="submit" class="btn-primary w-full md:w-auto" data-key="send_btn"><i class="fas fa-paper-plane"></i> Jo'natish</button>
         </form>
-        <div class="mt-10">
-          <p class="text-white/70 mb-4" data-key="social_text">Biz ijtimoiy tarmoqlarda:</p>
-          <div class="flex gap-4">
-            <a href="https://t.me/+998977526688" target="_blank" class="social-btn"><i class="fab fa-telegram fa-xl"></i></a>
-            <a href="https://www.instagram.com/zaytun_garden" target="_blank" class="social-btn"><i class="fab fa-instagram fa-xl"></i></a>
-            <a href="https://www.facebook.com/share/1BD4yMEpws" target="_blank" class="social-btn"><i class="fab fa-facebook-f fa-xl"></i></a>
-            <a href="https://youtube.com/@zaytungarden1" target="_blank" class="social-btn"><i class="fab fa-youtube fa-xl"></i></a>
-            <a href="https://wa.me/998977526688" target="_blank" class="social-btn"><i class="fab fa-whatsapp fa-xl"></i></a>
+
+        <div class="mt-8 md:mt-10">
+          <p class="text-white/70 mb-4" data-key="social_text">Ijtimoiy tarmoqlar:</p>
+          <div class="flex gap-3">
+            <a href="https://t.me/+998977526688" target="_blank" class="social-btn" title="Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://www.instagram.com/zaytun_garden" target="_blank" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1BD4yMEpws" target="_blank" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com/@zaytungarden1" target="_blank" class="social-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/998977526688" target="_blank" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
-        <div class="mt-8 space-y-3 text-white/70">
-          <p><i class="fas fa-phone-alt text-[#C5A021] w-6"></i> +998 (94) 530-11-77 | +998 (97) 752-66-88</p>
-          <p><i class="fas fa-envelope text-[#C5A021] w-6"></i> zaytungarden1@gmail.com</p>
-          <p><i class="fas fa-map-marker-alt text-[#C5A021] w-6"></i> <span data-key="address_text">Toshkent sh., Bektemir tumani, Ohangaron ko'chasi</span></p>
+
+        <div class="mt-6 md:mt-8 space-y-2 md:space-y-3 text-white/70 text-sm md:text-base">
+          <p><i class="fas fa-phone-alt text-[#C5A021] w-5"></i> +998 (94) 530-11-77</p>
+          <p><i class="fas fa-envelope text-[#C5A021] w-5"></i> zaytungarden1@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt text-[#C5A021] w-5"></i> <span data-key="address_text">Toshkent, Bektemir</span></p>
         </div>
       </div>
-      <div class="h-96 rounded-3xl overflow-hidden shadow-2xl border-2 border-[#C5A021]/30" data-aos="zoom-in">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.406855140889!2d69.3823233!3d41.253309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE1JzExLjkiTiA2OcKwMjMnMDQuMiJF!5e0!3m2!1suz!2suz!4v1714824000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+      <div class="h-80 md:h-96 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-2 border-[#C5A021]/30" data-aos="zoom-in">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.406855140889!2d69.3823233!3d41.253309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE1JzExLjkiTiA2OU8yMjUwLjgiRQ!5e0!3m2!1sen!2s!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
@@ -640,29 +528,29 @@
 <!-- MODAL -->
 <div class="modal" id="productModal">
   <div class="modal-content">
-    <button class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white/80 hover:text-[#C5A021] hover:bg-black/60 transition text-2xl" onclick="closeModal()">&times;</button>
+    <button class="absolute top-3 md:top-4 right-3 md:right-4 z-10 w-8 md:w-10 h-8 md:h-10 flex items-center justify-center rounded-full bg-black/40 text-white/80 hover:text-[#C5A021] hover:bg-black/60 transition text-2xl" onclick="closeModal()">×</button>
     
     <div class="modal-image-wrapper">
       <img id="modalImage" src="" alt="Mahsulot rasmi" onclick="openLightbox(this.src)" onerror="this.style.display='none'">
     </div>
 
     <div class="modal-body">
-      <div class="flex items-start gap-4 mb-3">
-        <div class="text-4xl text-[#C5A021]"><i class="fas fa-tree"></i></div>
+      <div class="flex items-start gap-3 md:gap-4 mb-3">
+        <div class="text-3xl md:text-4xl text-[#C5A021]"><i class="fas fa-tree"></i></div>
         <div>
-          <h3 class="text-2xl font-serif text-white" id="modalTitle">Zaytun daraxti</h3>
-          <p class="text-[#C5A021] mt-1"><i class="fas fa-map-pin mr-1"></i> <span id="modalCountry">Turkiya</span></p>
+          <h3 class="text-xl md:text-2xl font-serif text-white" id="modalTitle">Zaytun daraxti</h3>
+          <p class="text-[#C5A021] mt-1 text-sm md:text-base"><i class="fas fa-map-pin mr-1"></i> <span id="modalCountry">Turkiya</span></p>
         </div>
       </div>
-      <p class="text-white/80 leading-relaxed mb-5" id="modalDesc">Yevropa standartlariga javob beradigan noyob o'simlik.</p>
-      <div class="flex gap-3 flex-wrap">
-        <span class="px-3 py-1 bg-[#C5A021]/20 text-[#C5A021] rounded-full text-sm"><i class="fas fa-truck mr-1"></i> Yetkazib berish</span>
-        <span class="px-3 py-1 bg-[#C5A021]/20 text-[#C5A021] rounded-full text-sm"><i class="fas fa-shield-alt mr-1"></i> 1 yil kafolat</span>
-        <span class="px-3 py-1 bg-[#C5A021]/20 text-[#C5A021] rounded-full text-sm"><i class="fas fa-water mr-1"></i> Parvarish qo'llanma</span>
+      <p class="text-white/80 leading-relaxed mb-4 md:mb-5 text-sm md:text-base" id="modalDesc">Yevropa standartlariga javob beradigan noyob o'simlik.</p>
+      <div class="flex gap-2 md:gap-3 flex-wrap">
+        <span class="px-2 md:px-3 py-1 bg-[#C5A021]/20 text-[#C5A021] rounded-full text-xs md:text-sm"><i class="fas fa-truck mr-1"></i> Yetkazib berish</span>
+        <span class="px-2 md:px-3 py-1 bg-[#C5A021]/20 text-[#C5A021] rounded-full text-xs md:text-sm"><i class="fas fa-shield-alt mr-1"></i> 1 yil kafolat</span>
+        <span class="px-2 md:px-3 py-1 bg-[#C5A021]/20 text-[#C5A021] rounded-full text-xs md:text-sm"><i class="fas fa-water mr-1"></i> Qo'llanma</span>
       </div>
-      <div class="flex gap-3 mt-5">
-        <button class="flex-1 btn-primary justify-center" onclick="closeModal()" data-key="ok_btn"><i class="fas fa-check"></i> Tushundim</button>
-        <a href="#contact" class="flex-1 btn-outline justify-center" onclick="closeModal()" data-key="order_btn"><i class="fas fa-phone-alt"></i> Buyurtma</a>
+      <div class="flex gap-2 md:gap-3 mt-4 md:mt-5">
+        <button class="flex-1 btn-primary justify-center text-xs md:text-sm" onclick="closeModal()" data-key="ok_btn"><i class="fas fa-check"></i> OK</button>
+        <a href="#contact" class="flex-1 btn-outline justify-center text-xs md:text-sm" onclick="closeModal()" data-key="order_btn"><i class="fas fa-phone-alt"></i> Bog'lanish</a>
       </div>
     </div>
   </div>
@@ -670,37 +558,34 @@
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="modal" onclick="closeLightbox()">
-  <button class="absolute top-6 right-6 text-white text-5xl hover:text-[#C5A021] z-50" onclick="closeLightbox()">&times;</button>
-  <img id="lightboxImg" src="" class="max-w-[95%] max-h-[95%] object-contain shadow-2xl border-2 border-white/20 rounded-lg">
+  <button class="absolute top-4 md:top-6 right-4 md:right-6 text-white text-4xl md:text-5xl hover:text-[#C5A021] z-50" onclick="closeLightbox()">&times;</button>
+  <img id="lightboxImg" src="" class="max-w-[95%] max-h-[85vh] object-contain shadow-2xl border-2 border-white/20 rounded-lg">
 </div>
 
 <!-- ALL PRODUCTS PAGE -->
 <div id="allProductsPage">
   <div class="all-products-nav">
-    <div class="flex items-center gap-3">
-      <img src="logotip.png" alt="Logo" class="h-9 w-auto" onerror="this.src='https://placehold.co/200x60/C5A021/white?text=Zaytun'">
-      <span class="text-lg font-serif font-bold text-white">Zaytun Garden</span>
+    <div class="flex items-center gap-2 md:gap-3">
+      <img src="logotip.png" alt="Logo" class="h-7 md:h-9 w-auto" onerror="this.src='https://placehold.co/200x60/C5A021/white?text=Zaytun'">
+      <span class="text-base md:text-lg font-serif font-bold text-white">Zaytun</span>
     </div>
     <button class="back-btn" id="backToMainBtn">
       <i class="fas fa-arrow-left"></i> <span data-key="back_btn">Orqaga</span>
     </button>
   </div>
   <div class="dark-bg">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="text-4xl md:text-5xl font-serif text-white mb-3" data-key="all_products_title">Barcha mahsulotlar</h2>
-        <p class="text-white/60 max-w-xl mx-auto" data-key="all_products_desc">Zaytun Garden'ning to'liq katalogi — 23 ta noyob o'simlik</p>
-        <div class="mt-4 inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#C5A021]/30 text-[#C5A021] text-sm">
-          <i class="fas fa-seedling"></i> <span data-key="total_text">Jami 23 ta tur</span>
-        </div>
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8 md:mb-10">
+        <h2 class="text-3xl md:text-5xl font-serif text-white mb-3" data-key="all_products_title">Barcha mahsulotlar</h2>
+        <p class="text-white/60 max-w-xl mx-auto text-sm md:text-base" data-key="all_products_desc">Zaytun Garden katalogi</p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5" id="allProductsGrid"></div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5" id="allProductsGrid"></div>
     </div>
   </div>
 </div>
 
-<footer class="py-8 text-center text-white/50 border-t border-white/10">
-  <p>© 2025 Zaytun Garden. Daraxtlar va butalar ko'chatxonasi. Barcha huquqlar himoyalangan.</p>
+<footer class="py-6 md:py-8 text-center text-white/50 border-t border-white/10 text-xs md:text-base">
+  <p>© 2025 Zaytun Garden. Barcha huquqlar himoyalangan.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -709,42 +594,70 @@
 <script>
 // ===== MAHSULOT MA'LUMOTLARI =====
 const plantDetails = {
-  zaytun: { img: 'zaytun_daraxti.jpg', country: 'Turkiya', title: { uz: 'Zaytun daraxti', tr: 'Zeytin Ağacı', ru: 'Оливковое дерево', en: 'Olive Tree' }, desc: { uz: "O'rta yer dengizining ramzi. 3-5 yoshli mevali ko'chatlar. Sovuqqa chidamli, -10°C gacha.", tr: "Akdeniz'in simgesi. 3-5 yaş meyveli fidanlar.", ru: "Символ Средиземноморья. Плодовые саженцы 3-5 лет.", en: "Symbol of the Mediterranean. 3-5 year old fruit seedlings." } },
-  kiparis: { img: 'yevropa kiparis uzun.jpg', country: 'Turkiya', title: { uz: 'Yevropa kiparisi', tr: 'Avrupa Selvisi', ru: 'Европейский кипарис', en: 'European Cypress' }, desc: { uz: "Doim yashil, tez o'sadigan ignabargli daraxt.", tr: "Her dem yeşil, hızlı büyüyen iğne yapraklı ağaç.", ru: "Вечнозеленое быстрорастущее хвойное дерево.", en: "Evergreen, fast-growing coniferous tree." } },
-  siren: { img: 'siren diamond.jpg', country: 'Turkiya', title: { uz: 'India sireni', tr: 'Oya Ağacı', ru: 'Индийская сирень', en: 'Crape Myrtle' }, desc: { uz: "Yoz oylarida go'zal gullaydigan manzarali buta.", tr: "Yaz aylarında harika çiçek açan dekoratif çalı.", ru: "Декоративный кустарник, красиво цветущий летом.", en: "Beautiful flowering ornamental shrub in summer." } },
-  rozmarin: { img: 'rozmarin.jpg', country: 'Turkiya', title: { uz: 'Rozmarin', tr: 'Biberiye', ru: 'Розмарин', en: 'Rosemary' }, desc: { uz: "Xushbo'y dorivor o'simlik. Oshxonada ziravor sifatida ishlatiladi.", tr: "Hoş kokulu tıbbi bitki. Mutfakta baharat olarak kullanılır.", ru: "Ароматное лекарственное растение. Используется как приправа.", en: "Fragrant medicinal plant. Used as a spice in the kitchen." } },
-  oleandro: { img: 'oleandra2.jpg', country: 'Turkiya', title: { uz: 'Oleandro nano', tr: 'Zakkum Nano', ru: 'Олеандр нано', en: 'Oleander Nano' }, desc: { uz: "Chiroyli gullaydigan buta. Issiq iqlimni yaxshi ko'radi.", tr: "Güzel çiçek açan çalı. Sıcak iklimi sever.", ru: "Красиво цветущий кустарник. Любит теплый климат.", en: "Beautifully flowering shrub. Likes warm climates." } },
-  lox: { img: 'lox.jpg', country: 'Turkiya', title: { uz: 'Lox', tr: 'İğde', ru: 'Лох', en: 'Silverberry' }, desc: { uz: "Manzarali o'simlik. Bog'ingizga hashamat baxsh etadi.", tr: "Dekoratif bitki. Bahçenize lüks bir görünüm kazandırır.", ru: "Декоративное растение. Придаст саду роскошный вид.", en: "Ornamental plant. Adds luxury to your garden." } },
-  ligustrum: { img: 'ligustrum.jpg', country: 'Turkiya', title: { uz: 'Ligustrum', tr: 'Kurtbağrı', ru: 'Лигуструм', en: 'Ligustrum' }, desc: { uz: "Doim yashil buta. Manzarali to'siq yaratish uchun mos.", tr: "Her dem yeşil çalı. Dekoratif çit oluşturmak için ideal.", ru: "Вечнозеленый кустарник. Идеален для живой изгороди.", en: "Evergreen shrub. Perfect for creating an ornamental hedge." } },
-  leylandi: { img: 'leylandi.jpg', country: 'Turkiyaa', title: { uz: 'Leylandi Sarvi', tr: 'Leylandi', ru: 'Кипарисовик Лейланда', en: 'Leyland Cypress' }, desc: { uz: "Tez o'sadigan ignabargli daraxt. Shamoldan himoya qiladi.", tr: "Hızlı büyüyen iğne yapraklı ağaç. Rüzgardan korur.", ru: "Быстрорастущее хвойное дерево. Защищает от ветра.", en: "Fast-growing coniferous tree. Protects from wind." } },
-  lavr: { img: 'lavr yirik.jpg', country: 'Turkiya', title: { uz: 'Lavroviy list', tr: 'Defne Yaprağı', ru: 'Лавровый лист', en: 'Bay Laurel' }, desc: { uz: "Xushbo'y barglari oshxonada ishlatiladi.", tr: "Hoş kokulu yaprakları mutfakta kullanılır.", ru: "Ароматные листья используются в кулинарии.", en: "Fragrant leaves used in cooking." } },
-  lavanda: { img: 'lavanda.jpg', country: 'Turkiya', title: { uz: 'Lavanda', tr: 'Lavanta', ru: 'Лаванда', en: 'Lavender' }, desc: { uz: "Xushbo'y va dorivor o'simlik. Hasharotlarni qaytaradi.", tr: "Hoş kokulu ve tıbbi bitki. Böcekleri uzaklaştırır.", ru: "Ароматное и лекарственное растение. Отпугивает насекомых.", en: "Fragrant and medicinal plant. Repels insects." } },
-  kiparis2: { img: 'kiparis spiral.jpg', country: 'Turkiya', title: { uz: 'Arizona Kiparis Spiral', tr: 'Arizona Selvisi Spiral', ru: 'Аризонский кипарис спираль', en: 'Arizona Cypress Spiral' }, desc: { uz: "Spiral shaklda o'sadigan noyob kiparis.", tr: "Spiral şeklinde büyüyen nadir selvi.", ru: "Уникальный кипарис, растущий по спирали.", en: "Unique cypress growing in a spiral shape." } },
-  kedr: { img: 'kedri deodora.jpg', country: 'Turkiya', title: { uz: 'Kedri Deodora', tr: 'Deodor Sediri', ru: 'Кедр Гималайский', en: 'Deodar Cedar' }, desc: { uz: "Bo'yi baland, hashamatli ignabargli daraxt.", tr: "Yüksek boylu, görkemli iğne yapraklı ağaç.", ru: "Высокое величественное хвойное дерево.", en: "Tall, majestic coniferous tree." } },
-  iyanomus: { img: 'iyanomus japonica.jpg', country: 'Turkiya', title: { uz: 'Iyanomus Japonica', tr: 'Japon Taflanı', ru: 'Бересклет японский', en: 'Euonymus Japonicus' }, desc: { uz: "Rang-barang barglari bilan manzarali buta.", tr: "Renkli yapraklarıyla dekoratif çalı.", ru: "Декоративный кустарник с пестрыми листьями.", en: "Ornamental shrub with variegated leaves." } },
-  goldkrest: { img: 'goldkrest_kiparis_kesilgan.jpg', country: 'Turkiya', title: { uz: 'Goldkrest Kiparis', tr: 'Limon Selvi', ru: 'Голдкрест кипарис', en: 'Goldcrest Cypress' }, desc: { uz: "Oltin-yashil rangli barglari bilan mashhur.", tr: "Altın sarısı-yeşil yapraklarıyla ünlüdür.", ru: "Известен золотисто-зелеными листьями.", en: "Famous for its golden-green leaves." } },
-  geron: { img: 'geron.jpg', country: "O'zbekiston", title: { uz: 'Geron', tr: 'Geron', ru: 'Герон', en: 'Geron' }, desc: { uz: "Mahalliy nav. Issiq iqlimga moslashgan.", tr: "Yerel çeşit. Sıcak iklime uyum sağlamıştır.", ru: "Местный сорт. Адаптирован к жаркому климату.", en: "Local variety. Adapted to hot climates." } },
-  fotiniya: { img: 'fotiniya shar.jpg', country: 'Turkiya', title: { uz: 'Fotiniya Shar', tr: 'Alev Ağacı Top', ru: 'Фотиния Шар', en: 'Photinia Ball' }, desc: { uz: "Shar shaklida o'sadigan manzarali buta.", tr: "Top şeklinde büyüyen dekoratif çalı.", ru: "Декоративный кустарник, растущий в форме шара.", en: "Ornamental shrub growing in a ball shape." } },
-  fotiniya2: { img: 'fotiniya obichniy.jpg', country: 'Turkiya', title: { uz: 'Fotiniya', tr: 'Alev Ağacı', ru: 'Фотиния', en: 'Photinia' }, desc: { uz: "Doim yashil buta. Bog'larda to'siq sifatida.", tr: "Her dem yeşil çalı. Bahçelerde çit olarak.", ru: "Вечнозеленый кустарник. Для живой изгороди.", en: "Evergreen shrub. Used as a hedge." } },
-  callistemon: { img: 'Callistemon.jpg', country: 'Turkiya', title: { uz: 'Callistemon', tr: 'Fırça Çiçeği', ru: 'Каллистемон', en: 'Bottlebrush' }, desc: { uz: "Qizil cho'tka gullari bilan mashhur.", tr: "Kırmızı fırça çiçekleriyle ünlüdür.", ru: "Известен красными цветами-щетками.", en: "Famous for its red brush-like flowers." } },
-  buxus: { img: 'buxus.jpg', country: 'Turkiya', title: { uz: 'Buxus', tr: 'Şimşir', ru: 'Самшит', en: 'Boxwood' }, desc: { uz: "Doim yashil buta. Shakl berishga juda mos.", tr: "Her dem yeşil çalı. Şekil vermeye çok uygundur.", ru: "Вечнозеленый кустарник. Отлично поддается стрижке.", en: "Evergreen shrub. Very suitable for shaping." } },
-  bravo: { img: 'bravo.jpg', country: 'Turkiya', title: { uz: 'Bravo iyonomus', tr: 'Bravo Taflanı', ru: 'Бересклет Браво', en: 'Euonymus Bravo' }, desc: { uz: "Rang-barang barglari bilan manzarali.", tr: "Renkli yapraklarıyla dekoratif.", ru: "Декоративный с пестрыми листьями.", en: "Ornamental with variegated leaves." } },
-  aura: { img: 'aura.jpg', country: 'Turkiya', title: { uz: 'Aura iyonomus', tr: 'Aura Taflanı', ru: 'Бересклет Аура', en: 'Euonymus Aura' }, desc: { uz: "Oltin rangli barglari bilan bog'ingizni yoritadi.", tr: "Altın sarısı yapraklarıyla bahçenizi aydınlatır.", ru: "Осветит сад золотистыми листьями.", en: "Brightens your garden with golden leaves." } },
-  atirgul: { img: 'atirgul shtamp.jpg', country: 'Turkiya', title: { uz: 'Atirgul shtamp', tr: 'Baston Gül', ru: 'Роза штамбовая', en: 'Standard Rose' }, desc: { uz: "Shtamp ko'rinishidagi atirgul.", tr: "Baston şeklinde gül.", ru: "Штамбовая роза.", en: "Standard (tree) rose." } },
-  abelia: { img: 'abeliya grandiflora.jpg', country: 'Turkiya', title: { uz: 'Abelia grandiflora', tr: 'Abelya', ru: 'Абелия грандифлора', en: 'Abelia Grandiflora' }, desc: { uz: "Uzoq vaqt davomida gullaydi.", tr: "Uzun süre çiçek açar.", ru: "Цветет долгое время.", en: "Blooms for a long time." } }
+  zaytun: { img: 'zaytun_daraxti.jpg', country: 'Turkiya', title: { uz: 'Zaytun daraxti', tr: 'Zeytin Ağacı', ru: 'Оливковое дерево', en: 'Olive Tree' }, desc: { uz: "O'rta yer dengligi iqlimiga mosashgan. Sog'lom va chiroyli.", tr: "Orta deniz ikliminde gelişir. Sağlık ve güzellik için harika.", ru: "Средиземноморский климат. Красивое и здоровое дерево.", en: "Mediterranean climate. Beautiful and healthy tree." } },
+  kiparis: { img: 'yevropa kiparis uzun.jpg', country: 'Turkiya', title: { uz: 'Yevropa kiparisi', tr: 'Avrupa Selvisi', ru: 'Европейский кипарис', en: 'European Cypress' }, desc: { uz: "Yuqori bo'ylik, piramid shakli. Bog'larga juda mos.", tr: "Yüksek, piramid şekli. Bahçelere mükemmel.", ru: "Высокий, пирамидальная форма. Идеален для садов.", en: "Tall, pyramid shape. Perfect for gardens." } },
+  siren: { img: 'siren diamond.jpg', country: 'Turkiya', title: { uz: 'India sireni', tr: 'Oya Ağacı', ru: 'Индийская сирень', en: 'Crape Myrtle' }, desc: { uz: "Yoz oylarida go'zal gullar. Rangli barglari.", tr: "Yazın güzel çiçekler. Renkli yaprakları.", ru: "Летние цветы красивые. Красивые листья.", en: "Beautiful summer flowers. Colorful leaves." } }
 };
 
 // ===== TARJIMALAR =====
 const translations = {
-  uz: { nav_home: 'Asosiy', nav_products: 'Mahsulotlar', nav_gallery: 'Galereya', nav_contact: 'Aloqa', hero_title: 'ZAYTUN <br>GARDEN', hero_subtitle: 'Daraxtlar va butalar ko\'chatxonasi', hero_desc: 'Tabiatni uyingizga olib keling. 100+ turdagi dekorativ daraxtlar, butalar, ko\'chatlar va gullar.', catalog_btn: 'Katalogni ko\'rish', contact_btn: 'Bog\'lanish', products_title: 'Bizning mahsulotlar', products_desc: 'Yevropa va Osiyodan keltirilgan sifatli ko\'chatlar', all_btn: 'Barchasi', gallery_title: 'Galereya', gallery_1: 'Zaytun Garden', gallery_2: 'Poliv', gallery_3: 'Yomg\'irlatib sug\'orish', contact_title: 'Biz bilan bog\'lanish', name_placeholder: 'Ismingiz', phone_placeholder: 'Telefon raqam', message_placeholder: 'Xabaringiz', send_btn: 'Jo\'natish', social_text: 'Biz ijtimoiy tarmoqlarda:', address_text: 'Toshkent sh., Bektemir tumani, Ohangaron ko\'chasi', ok_btn: 'Tushundim', order_btn: 'Buyurtma', all_products_title: 'Barcha mahsulotlar', all_products_desc: 'Zaytun Garden\'ning to\'liq katalogi — 23 ta noyob o\'simlik', total_text: 'Jami 23 ta tur', back_btn: 'Orqaga' },
-  tr: { nav_home: 'Anasayfa', nav_products: 'Ürünler', nav_gallery: 'Galeri', nav_contact: 'İletişim', hero_title: 'ZAYTUN <br>GARDEN', hero_subtitle: 'Ağaç ve Çalı Fidanlığı', hero_desc: 'Doğayı evinize getirin. 100+ çeşit dekoratif ağaç, çalı, fidan ve çiçek.', catalog_btn: 'Kataloğu Görüntüle', contact_btn: 'İletişime Geç', products_title: 'Ürünlerimiz', products_desc: 'Avrupa ve Asya\'dan ithal kaliteli fidanlar', all_btn: 'Hepsi', gallery_title: 'Galeri', gallery_1: 'Zaytun Garden', gallery_2: 'Sulama', gallery_3: 'Yağmurlama Sulama', contact_title: 'Bizimle İletişime Geçin', name_placeholder: 'Adınız', phone_placeholder: 'Telefon Numaranız', message_placeholder: 'Mesajınız', send_btn: 'Gönder', social_text: 'Sosyal Medyada Biz:', address_text: 'Taşkent, Bektemir ilçesi, Ahangaran caddesi', ok_btn: 'Anladım', order_btn: 'Sipariş Ver', all_products_title: 'Tüm Ürünler', all_products_desc: 'Zaytun Garden\'ın tam kataloğu — 23 eşsiz bitki', total_text: 'Toplam 23 tür', back_btn: 'Geri' },
-  ru: { nav_home: 'Главная', nav_products: 'Продукты', nav_gallery: 'Галерея', nav_contact: 'Контакты', hero_title: 'ZAYTUN <br>GARDEN', hero_subtitle: 'Питомник деревьев и кустарников', hero_desc: 'Принесите природу в свой дом. Более 100 видов декоративных деревьев, кустарников, саженцев и цветов.', catalog_btn: 'Смотреть каталог', contact_btn: 'Связаться', products_title: 'Наша продукция', products_desc: 'Качественные саженцы из Европы и Азии', all_btn: 'Все', gallery_title: 'Галерея', gallery_1: 'Zaytun Garden', gallery_2: 'Полив', gallery_3: 'Дождевание', contact_title: 'Свяжитесь с нами', name_placeholder: 'Ваше имя', phone_placeholder: 'Номер телефона', message_placeholder: 'Ваше сообщение', send_btn: 'Отправить', social_text: 'Мы в соцсетях:', address_text: 'г. Ташкент, Бектемирский район, ул. Ахангаран', ok_btn: 'Понятно', order_btn: 'Заказать', all_products_title: 'Все продукты', all_products_desc: 'Полный каталог Zaytun Garden — 23 уникальных растения', total_text: 'Всего 23 вида', back_btn: 'Назад' },
-  en: { nav_home: 'Home', nav_products: 'Products', nav_gallery: 'Gallery', nav_contact: 'Contact', hero_title: 'ZAYTUN <br>GARDEN', hero_subtitle: 'Nursery of trees and shrubs', hero_desc: 'Bring nature into your home. 100+ types of decorative trees, shrubs, seedlings and flowers.', catalog_btn: 'View Catalog', contact_btn: 'Contact Us', products_title: 'Our Products', products_desc: 'Quality seedlings imported from Europe and Asia', all_btn: 'All', gallery_title: 'Gallery', gallery_1: 'Zaytun Garden', gallery_2: 'Irrigation', gallery_3: 'Sprinkler Irrigation', contact_title: 'Contact Us', name_placeholder: 'Your Name', phone_placeholder: 'Phone Number', message_placeholder: 'Your Message', send_btn: 'Send', social_text: 'Follow Us:', address_text: 'Tashkent city, Bektemir district, Ohangaron street', ok_btn: 'Got it', order_btn: 'Order Now', all_products_title: 'All Products', all_products_desc: 'Full Zaytun Garden catalog — 23 unique plants', total_text: 'Total 23 species', back_btn: 'Back' }
+  uz: { 
+    nav_home: 'Asosiy', nav_products: 'Mahsulotlar', nav_gallery: 'Galereya', nav_contact: 'Aloqa',
+    hero_title: 'ZAYTUN<br>GARDEN', hero_subtitle: 'Daraxtlar va butalar ko\'chatxonasi',
+    hero_desc: 'Tabiatni uyingizga olib keling. Sifatli va noyob o\'simliklar.',
+    catalog_btn: 'Katalog', contact_btn: 'Bog\'lanish',
+    products_title: 'Bizning mahsulotlar', products_desc: 'Yevropa va Osiyodan keltirilgan sifatli ko\'chatlar',
+    all_btn: 'Barchasi', gallery_title: 'Galereya', gallery_1: 'Zaytun Garden', gallery_2: 'Poliv', gallery_3: 'Yomg\'irlatib',
+    contact_title: 'Bog\'lanish', name_placeholder: 'Ismingiz', phone_placeholder: 'Telefon', message_placeholder: 'Xabaringiz',
+    send_btn: 'Jo\'natish', social_text: 'Ijtimoiy tarmoqlar:', address_text: 'Toshkent, Bektemir',
+    ok_btn: 'OK', order_btn: 'Bog\'lanish', back_btn: 'Orqaga',
+    all_products_title: 'Barcha mahsulotlar', all_products_desc: 'Zaytun Garden katalogi',
+    detail_btn: 'Batafsil', success_msg: 'Xabaringiz muvaffaqiyatli yuborildi!'
+  },
+  tr: { 
+    nav_home: 'Anasayfa', nav_products: 'Ürünler', nav_gallery: 'Galeri', nav_contact: 'İletişim',
+    hero_title: 'ZAYTUN<br>GARDEN', hero_subtitle: 'Ağaç ve Çalı Fidanlığı',
+    hero_desc: 'Doğayı evinize getirin. Kaliteli ve nadir bitkiler.',
+    catalog_btn: 'Katalog', contact_btn: 'İletişim',
+    products_title: 'Ürünlerimiz', products_desc: 'Avrupa ve Asya\'dan getirilen kaliteli fidanlar',
+    all_btn: 'Tümü', gallery_title: 'Galeri', gallery_1: 'Zaytun Bahçesi', gallery_2: 'Su', gallery_3: 'Yağmur',
+    contact_title: 'İletişim', name_placeholder: 'Adınız', phone_placeholder: 'Telefon', message_placeholder: 'Mesajınız',
+    send_btn: 'Gönder', social_text: 'Sosyal ağlar:', address_text: 'Taşkent, Bektemir',
+    ok_btn: 'Tamam', order_btn: 'İletişim', back_btn: 'Geri',
+    all_products_title: 'Tüm ürünler', all_products_desc: 'Zaytun Bahçesi kataloğu',
+    detail_btn: 'Detay', success_msg: 'Mesajınız başarıyla gönderildi!'
+  },
+  ru: { 
+    nav_home: 'Главная', nav_products: 'Продукты', nav_gallery: 'Галерея', nav_contact: 'Контакты',
+    hero_title: 'ZAYTUN<br>GARDEN', hero_subtitle: 'Питомник деревьев и кустарников',
+    hero_desc: 'Принесите природу домой. Качественные и редкие растения.',
+    catalog_btn: 'Каталог', contact_btn: 'Контакты',
+    products_title: 'Наши продукты', products_desc: 'Качественные саженцы из Европы и Азии',
+    all_btn: 'Все', gallery_title: 'Галерея', gallery_1: 'Zaytun', gallery_2: 'Вода', gallery_3: 'Дождь',
+    contact_title: 'Контакты', name_placeholder: 'Ваше имя', phone_placeholder: 'Телефон', message_placeholder: 'Ваше сообщение',
+    send_btn: 'Отправить', social_text: 'Социальные сети:', address_text: 'Ташкент, Бектемир',
+    ok_btn: 'ОК', order_btn: 'Контакты', back_btn: 'Назад',
+    all_products_title: 'Все продукты', all_products_desc: 'Каталог питомника',
+    detail_btn: 'Подробнее', success_msg: 'Ваше сообщение успешно отправлено!'
+  },
+  en: { 
+    nav_home: 'Home', nav_products: 'Products', nav_gallery: 'Gallery', nav_contact: 'Contact',
+    hero_title: 'ZAYTUN<br>GARDEN', hero_subtitle: 'Nursery of trees and shrubs',
+    hero_desc: 'Bring nature home. Quality and rare plants.',
+    catalog_btn: 'Catalog', contact_btn: 'Contact',
+    products_title: 'Our products', products_desc: 'Quality saplings from Europe and Asia',
+    all_btn: 'All', gallery_title: 'Gallery', gallery_1: 'Zaytun', gallery_2: 'Water', gallery_3: 'Rain',
+    contact_title: 'Contact', name_placeholder: 'Your name', phone_placeholder: 'Phone', message_placeholder: 'Your message',
+    send_btn: 'Send', social_text: 'Social networks:', address_text: 'Tashkent, Bektemir',
+    ok_btn: 'OK', order_btn: 'Contact', back_btn: 'Back',
+    all_products_title: 'All products', all_products_desc: 'Nursery catalog',
+    detail_btn: 'Details', success_msg: 'Your message was sent successfully!'
+  }
 };
 
 let currentLang = 'uz';
 
-// ===== FUNKSIYALAR =====
+// ===== FUNCTIONS =====
 function openLightbox(src) {
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -756,8 +669,7 @@ function openLightbox(src) {
 function closeLightbox() {
   const lightbox = document.getElementById('lightbox');
   lightbox.classList.remove('active');
-  if (!document.getElementById('productModal').classList.contains('active') && 
-      !document.getElementById('allProductsPage').classList.contains('active')) {
+  if (!document.getElementById('productModal').classList.contains('active')) {
     document.body.style.overflow = '';
   }
 }
@@ -765,14 +677,11 @@ function closeLightbox() {
 function closeModal() {
   const modal = document.getElementById('productModal');
   modal.classList.remove('active');
-  if (!document.getElementById('allProductsPage').classList.contains('active')) {
-    document.body.style.overflow = '';
-  }
+  document.body.style.overflow = '';
 }
 
 function openModal(plantKey) {
   const data = plantDetails[plantKey];
-  const dict = translations[currentLang];
   const modal = document.getElementById('productModal');
   const modalImage = document.getElementById('modalImage');
   const modalTitle = document.getElementById('modalTitle');
@@ -802,51 +711,14 @@ function applyLanguage(lang) {
     if (dict[key]) el.placeholder = dict[key];
   });
   
-  // Mahsulotlarni yangilash
-  document.querySelectorAll('.swiper-slide').forEach(slide => {
-    const btn = slide.querySelector('.detail-btn');
-    if (btn) {
-      const plantKey = btn.getAttribute('data-plant');
-      const data = plantDetails[plantKey];
-      if (data) {
-        slide.querySelector('h3').textContent = data.title[lang];
-        slide.querySelector('p').innerHTML = `<i class="fas fa-map-pin mr-1"></i> ${data.country}`;
-        btn.innerHTML = `<i class="fas fa-info-circle"></i> ${dict.detail_btn || 'Batafsil'}`;
-      }
-    }
-  });
-  
-  if (document.getElementById('allProductsPage').classList.contains('active')) {
-    buildAllProductsGrid();
-  }
+  const langLabels = { uz: '🇺🇿 UZ', tr: '🇹🇷 TR', ru: '🇷🇺 RU', en: '🇬🇧 EN' };
+  document.getElementById('currentLang').textContent = langLabels[lang];
 }
 
-function buildAllProductsGrid() {
-  const grid = document.getElementById('allProductsGrid');
-  const dict = translations[currentLang];
-  grid.innerHTML = '';
-  Object.entries(plantDetails).forEach(([key, data]) => {
-    const card = document.createElement('div');
-    card.className = 'product-grid-card';
-    card.innerHTML = `
-      <div style="overflow:hidden;">
-        <img src="${data.img}" alt="${data.title[currentLang]}" onclick="openLightbox(this.src)" onerror="this.src='https://placehold.co/400x300/1a2f25/C5A021?text=${encodeURIComponent(data.title[currentLang])}'">
-      </div>
-      <div class="card-body">
-        <h3>${data.title[currentLang]}</h3>
-        <p><i class="fas fa-map-pin" style="margin-right:4px;font-size:0.8rem;"></i>${data.country}</p>
-        <button onclick="openModal('${key}')"><i class="fas fa-info-circle"></i> ${dict.detail_btn || 'Batafsil'}</button>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-}
-
-// ===== DOM CONTENT LOADED =====
+// ===== DOM LOADED =====
 document.addEventListener('DOMContentLoaded', function() {
-  // Barglar animatsiyasi
   const leavesContainer = document.getElementById('fallingLeaves');
-  const leafIcons = ['🍂', '🍁', '🌿', '🍃', '🌱', '☘️'];
+  const leafIcons = ['🍂', '🍁', '🌿', '🍃', '🌱'];
   function createLeaf() {
     const leaf = document.createElement('div');
     leaf.className = 'leaf';
@@ -859,119 +731,93 @@ document.addEventListener('DOMContentLoaded', function() {
     leavesContainer.appendChild(leaf);
     setTimeout(() => leaf.remove(), 20000);
   }
-  for (let i = 0; i < 30; i++) setTimeout(() => createLeaf(), i * 200);
-  setInterval(createLeaf, 500);
+  for (let i = 0; i < 20; i++) setTimeout(() => createLeaf(), i * 200);
+  setInterval(createLeaf, 800);
 
   AOS.init({ duration: 800, once: true });
 
-  // Navbar scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // Mobile menu
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileMenuClose = document.getElementById('mobileMenuClose');
   const menuOverlay = document.getElementById('menuOverlay');
-  function openMobileMenu() { mobileMenu.classList.add('active'); menuOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-  function closeMobileMenu() { mobileMenu.classList.remove('active'); menuOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+  
+  function openMobileMenu() { 
+    mobileMenu.classList.add('active'); 
+    menuOverlay.classList.add('active'); 
+    document.body.style.overflow = 'hidden'; 
+  }
+  function closeMobileMenu() { 
+    mobileMenu.classList.remove('active'); 
+    menuOverlay.classList.remove('active'); 
+    document.body.style.overflow = ''; 
+  }
+  
   mobileMenuBtn?.addEventListener('click', openMobileMenu);
   mobileMenuClose?.addEventListener('click', closeMobileMenu);
   menuOverlay?.addEventListener('click', closeMobileMenu);
+  
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
 
-  // Swiper
   new Swiper('.mySwiper', {
-    effect: 'coverflow', grabCursor: true, centeredSlides: true, slidesPerView: 'auto', loop: true,
+    effect: 'coverflow', 
+    grabCursor: true, 
+    centeredSlides: true, 
+    slidesPerView: 'auto', 
+    loop: true,
     coverflowEffect: { rotate: 10, stretch: 0, depth: 250, modifier: 1, slideShadows: false },
     pagination: { el: '.swiper-pagination', clickable: true },
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     breakpoints: { 640: { slidesPerView: 1.2 }, 768: { slidesPerView: 1.5 }, 1024: { slidesPerView: 2.3 } }
   });
 
-  // Modal eventlari
-  const modal = document.getElementById('productModal');
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  
   document.querySelectorAll('.detail-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => { e.stopPropagation(); openModal(btn.getAttribute('data-plant')); });
+    btn.addEventListener('click', (e) => { 
+      e.stopPropagation(); 
+      openModal(btn.getAttribute('data-plant')); 
+    });
   });
 
-  // All Products Page
-  const allProductsPage = document.getElementById('allProductsPage');
-  const showAllProductsBtn = document.getElementById('showAllProductsBtn');
-  const backToMainBtn = document.getElementById('backToMainBtn');
-  
-  showAllProductsBtn?.addEventListener('click', () => {
-    buildAllProductsGrid();
-    allProductsPage.classList.add('active');
-    allProductsPage.scrollTop = 0;
-    document.body.style.overflow = 'hidden';
-  });
-  
-  backToMainBtn?.addEventListener('click', () => {
-    allProductsPage.classList.remove('active');
-    document.body.style.overflow = '';
-  });
-
-  // Contact Form (Formspree - Gmail)
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
       
-      submitBtn.disabled = true;
-      const loadingText = {
-        uz: '<i class="fas fa-spinner fa-spin"></i> Jo\'natilmoqda...',
-        tr: '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...',
-        ru: '<i class="fas fa-spinner fa-spin"></i> Отправка...',
-        en: '<i class="fas fa-spinner fa-spin"></i> Sending...'
+      const data = {
+        timestamp: new Date().toLocaleString(),
+        name: document.getElementById('userName').value,
+        phone: document.getElementById('userPhone').value,
+        message: document.getElementById('userMessage').value,
+        language: currentLang
       };
-      submitBtn.innerHTML = loadingText[currentLang];
 
       try {
-        const response = await fetch(this.action, {
+        // Google Sheets Web App URL
+        const response = await fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/usercontent', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: this.name.value,
-            phone: this.phone.value,
-            message: this.message.value
-          })
+          body: new FormData(this)
         });
 
-        const result = await response.text();
-        if (result === 'Success') {
-          const successMsg = {
-            uz: '✅ Xabaringiz muvaffaqiyatli yuborildi!',
-            tr: '✅ Mesajınız başarıyla gönderildi!',
-            ru: '✅ Ваше сообщение успешно отправлено!',
-            en: '✅ Your message was sent successfully!'
-          };
-          alert(successMsg[currentLang]);
-          this.reset();
-        } else {
-          throw new Error('Formspree error');
-        }
+        const successMsg = document.getElementById('successMessage');
+        successMsg.classList.add('show');
+        
+        this.reset();
+        
+        setTimeout(() => {
+          successMsg.classList.remove('show');
+        }, 3000);
       } catch (error) {
-        const errorMsg = {
-          uz: '❌ Xatolik yuz berdi. Qaytadan urinib ko\'ring.',
-          tr: '❌ Bir hata oluştu. Lütfen tekrar deneyin.',
-          ru: '❌ Произошла ошибка. Пожалуйста, попробуйте еще раз.',
-          en: '❌ An error occurred. Please try again.'
-        };
-        alert(errorMsg[currentLang]);
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+        alert(translations[currentLang].contact_btn + ' orqali jo\'natib ko\'ring');
       }
     });
   }
 
-  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -979,35 +825,36 @@ document.addEventListener('DOMContentLoaded', function() {
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
-        closeMobileMenu();
+        window.scrollTo({ 
+          top: target.getBoundingClientRect().top + window.pageYOffset - 80, 
+          behavior: 'smooth' 
+        });
       }
     });
   });
 
-  // GSAP animation
-  gsap.fromTo('.hero-card', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, delay: 0.3 });
-
-  // Til sozlamalari
   const langBtn = document.getElementById('langBtn');
-  const currentLangSpan = document.getElementById('currentLang');
   const langSelector = document.getElementById('langSelector');
   const langOptions = document.querySelectorAll('.lang-option');
   
-  langBtn?.addEventListener('click', (e) => { e.stopPropagation(); langSelector.classList.toggle('active'); });
+  langBtn?.addEventListener('click', (e) => { 
+    e.stopPropagation(); 
+    langSelector.classList.toggle('active'); 
+  });
+  
   langOptions.forEach(opt => {
     opt.addEventListener('click', () => {
       const lang = opt.dataset.lang;
-      const flags = { uz: '🇺🇿 O\'zbekcha', tr: '🇹🇷 Türkçe', ru: '🇷🇺 Русский', en: '🇬🇧 English' };
-      currentLangSpan.innerHTML = flags[lang];
       applyLanguage(lang);
       langSelector.classList.remove('active');
     });
   });
-  document.addEventListener('click', () => langSelector?.classList.remove('active'));
-  
-  applyLanguage('uz');
+
+  document.addEventListener('click', () => {
+    langSelector.classList.remove('active');
+  });
 });
 </script>
+
 </body>
 </html>
