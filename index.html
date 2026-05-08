@@ -38,18 +38,18 @@
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
 
-    .glass-nav { background: rgba(13, 31, 23, 0.6); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(197, 160, 33, 0.2); transition: all 0.3s ease; }
-    .glass-nav.scrolled { background: rgba(10, 26, 18, 0.95); padding: 8px 24px; }
+    .glass-nav { background: rgba(13, 31, 23, 0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(197, 160, 33, 0.2); transition: all 0.3s ease; }
+    .glass-nav.scrolled { background: rgba(10, 26, 18, 0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 8px 24px; }
 
     .hero-with-image { min-height: 100vh; display: flex; align-items: center; position: relative; }
     .hero-card {
-      background: rgba(10, 26, 18, 0.7); backdrop-filter: blur(12px);
+      background: rgba(10, 26, 18, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border-radius: 48px; border: 1px solid rgba(197, 160, 33, 0.3);
       padding: 48px 56px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
       height: 100%; min-height: 550px; display: flex; flex-direction: column; justify-content: center;
     }
     .hero-logo-card {
-      background: rgba(10, 26, 18, 0.7); backdrop-filter: blur(12px);
+      background: rgba(10, 26, 18, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border-radius: 48px; border: 1px solid rgba(197, 160, 33, 0.3);
       box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
       height: 100%; min-height: 550px; display: flex; align-items: center; justify-content: center;
@@ -63,7 +63,7 @@
     .lang-selector { position: relative; display: inline-block; }
     .lang-dropdown {
       position: absolute; top: 100%; right: 0; background: rgba(27, 67, 50, 0.98);
-      backdrop-filter: blur(10px); border-radius: 16px; padding: 0.5rem; min-width: 130px;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 16px; padding: 0.5rem; min-width: 130px;
       display: none; z-index: 100; border: 1px solid #C5A021;
     }
     .lang-selector.active .lang-dropdown { display: block; }
@@ -72,14 +72,14 @@
 
     .swiper { width: 100%; padding: 2rem 0.5rem 4rem; }
     .swiper-slide {
-      background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border-radius: 32px; overflow: hidden; border: 1px solid rgba(197, 160, 33, 0.2); transition: all 0.4s;
     }
     .swiper-slide-active { transform: scale(1.02); box-shadow: 0 30px 50px -10px rgba(0,0,0,0.5); border-color: #C5A021; }
     .swiper-slide img { width: 100%; height: 280px; object-fit: cover; cursor: pointer; }
 
     .glass-card {
-      background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(197, 160, 33, 0.15); border-radius: 24px; transition: all 0.4s ease;
     }
     .glass-card:hover { transform: translateY(-10px); border-color: #C5A021; }
@@ -88,7 +88,7 @@
     /* ===== MODAL ===== */
     .modal {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); z-index: 1000;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 1000;
       align-items: center; justify-content: center; padding: 16px;
     }
     .modal.active { display: flex; }
@@ -143,7 +143,7 @@
 
     .mobile-menu {
       position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-      background: rgba(10, 26, 18, 0.98); backdrop-filter: blur(20px); z-index: 100;
+      background: rgba(10, 26, 18, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 100;
       padding: 100px 30px 40px; transition: right 0.4s ease; border-left: 1px solid rgba(197, 160, 33, 0.3);
     }
     .mobile-menu.active { right: 0; }
@@ -159,7 +159,7 @@
 
     .swiper-button-next, .swiper-button-prev {
       color: #C5A021 !important; background: rgba(10, 26, 18, 0.8);
-      width: 44px; height: 44px; border-radius: 50%; backdrop-filter: blur(5px);
+      width: 44px; height: 44px; border-radius: 50%; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
     }
     .swiper-button-next:after, .swiper-button-prev:after { font-size: 18px; }
     .swiper-pagination-bullet { background: rgba(255,255,255,0.5) !important; }
