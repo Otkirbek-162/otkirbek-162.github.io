@@ -608,7 +608,7 @@
     <div class="grid md:grid-cols-2 gap-12">
       <div data-aos="fade-up">
         <h2 class="text-4xl font-serif text-white mb-6" data-key="contact_title">Biz bilan bog'lanish</h2>
-        <form id="contactForm" action="https://formspree.io/f/zaytungarden1@gmail.com" method="POST" class="space-y-6">
+        <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxBJvKd67yx07jwMqWTcROr4KBYjX72nx2XLSMq_r17vHAZ3sbujFzqzxb50nNIr6Oo/exec" method="POST" class="space-y-6">
           <input type="text" name="name" class="form-input" placeholder="Ismingiz" id="userName" data-key-placeholder="name_placeholder" required>
           <input type="tel" name="phone" class="form-input" placeholder="Telefon raqam" id="userPhone" data-key-placeholder="phone_placeholder" required>
           <textarea name="message" rows="4" class="form-input" placeholder="Xabaringiz" id="userMessage" data-key-placeholder="message_placeholder" required></textarea>
@@ -935,11 +935,16 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         const response = await fetch(this.action, {
           method: 'POST',
-          body: new FormData(this),
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: this.name.value,
+            phone: this.phone.value,
+            message: this.message.value
+          })
         });
 
-        if (response.ok) {
+        const result = await response.text();
+        if (result === 'Success') {
           const successMsg = {
             uz: '✅ Xabaringiz muvaffaqiyatli yuborildi!',
             tr: '✅ Mesajınız başarıyla gönderildi!',
